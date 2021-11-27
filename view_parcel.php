@@ -57,19 +57,19 @@ $branch = array();
 						<div class="row">
 							<div class="col-sm-6">
 								<dl>
-									<dt>Peso:</dt>
+									<dt>Orden:</dt>
 									<dd><?php echo $weight ?></dd>
-									<dt>Alto:</dt>
+									<dt>Cantidad:</dt>
 									<dd><?php echo $height ?></dd>
 									<dt>Precio:</dt>
-									<dd><?php echo number_format($price,2) ?></dd>
+									<dd><?php echo 	$price ?></dd>
 								</dl>	
 							</div>
 							<div class="col-sm-6">
 								<dl>
-									<dt>Ancho:</dt>
+									<dt>Producto:</dt>
 									<dd><?php echo $width ?></dd>
-									<dt>Largo:</dt>
+									<dt>Importacion:</dt>
 									<dd><?php echo $length ?></dd>
 									<dt>Tipo:</dt>
 									<dd><?php echo $type == 1 ? "<span class='badge badge-primary'>Exportacion</span>":"<span class='badge badge-info'>Importacion</span>" ?></dd>

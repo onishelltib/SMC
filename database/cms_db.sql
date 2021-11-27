@@ -70,7 +70,7 @@ CREATE TABLE `parcels` (
   `height` varchar(100) NOT NULL,
   `width` varchar(100) NOT NULL,
   `length` varchar(100) NOT NULL,
-  `price` float NOT NULL,
+  `price` varchar(100) NOT NULL,
   `status` int(2) NOT NULL DEFAULT 0,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -88,10 +88,10 @@
         <table class="table table-bordered" id="parcel-items">
           <thead>
             <tr>
-              <th>Peso</th>
+              <th>Orden</th>
               <th>Cantidad</th>
-              <th>Largo</th>
-              <th>Ancho</th>
+              <th>Importacion</th>
+              <th>Producto</th>
               <th>Precio</th>
               <?php if(!isset($id)): ?>
               <th></th>
@@ -104,7 +104,7 @@
               <td><input type="text" name='height[]' value="<?php echo isset($height) ? $height :'' ?>" ></td>
               <td><input type="text" name='length[]' value="<?php echo isset($length) ? $length :'' ?>" ></td>
               <td><input type="text" name='width[]' value="<?php echo isset($width) ? $width :'' ?>" ></td>
-              <td><input type="text" class="text-right number" name='price[]' value="<?php echo isset($price) ? $price :'' ?>" ></td>
+              <td><input type="text" name='price[]' value="<?php echo isset($price) ? $price :'' ?>" ></td>
               <?php if(!isset($id)): ?>
               <td><button class="btn btn-sm btn-danger" type="button" onclick="$(this).closest('tr').remove() && calc()"><i class="fa fa-times"></i></button></td>
               <?php endif; ?>
