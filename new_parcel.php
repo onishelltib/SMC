@@ -31,11 +31,11 @@
               <b>Informacion del Contenedor</b>
               <div class="form-group">
                 <label for="" class="control-label">CutOff</label>
-                <input type="text" name="recipient_name" id="Cargo_Cutoff" class="form-control form-control-sm" value="<?php echo isset($recipient_name) ? $recipient_name : '' ?>" required>
+                <input type="text" name="recipient_name" id="Cargo_Cutoff" class="form-control form-control-sm" value="<?php echo isset($recipient_name) ? $recipient_name : '' ?>">
               </div>
               <div class="form-group">
-                <label for="" class="control-label">Localizacion de LLegada</label>
-                <input type="text" name="recipient_address" id="POD" class="form-control form-control-sm" value="<?php echo isset($recipient_address) ? $recipient_address : '' ?>" required>
+                <label for="" class="control-label">Localizacion de Llegada</label>
+                <input type="text" name="recipient_address" id="POD" class="form-control form-control-sm" value="<?php echo isset($recipient_address) ? $recipient_address : '' ?>" >
               </div>
               <div class="form-group">
                 <label for="" class="control-label">Localizacion de Envio</label>
@@ -50,27 +50,35 @@
             <div class="form-group">
               <label for="dtype">Tipo</label>
               <input type="checkbox" name="type" id="dtype" <?php echo isset($type) && $type == 1 ? 'checked' : '' ?> data-bootstrap-switch data-toggle="toggle" data-on="Exportacion" data-off="Importacion" class="switch-toggle status_chk" data-size="xs" data-offstyle="info" data-width="6rem" value="1">
+             
             </div>
+            <label for="navieras"><b>Naviera</b></label>
+              <select id="navieras" class="form-control">
+                <option value="Api/api_cosco.php">Cosco</option>
+                <option value="Api/api_maersk.php">Maersk</option>
+                <option value="Api/api_cma.php">CMA CGM</option>
+                <option value="Api/api_msc.php">MSC</option>
+                </select>
           </div>
           <div class="col-md-6" id=""  <?php echo isset($type) && $type == 1 ? 'style="display: none"' : '' ?>>
-            <?php if($_SESSION['login_branch_id'] <= 0): ?>
+            <!--<?php //if($_SESSION['login_branch_id'] <= 0): ?>
               <div class="form-group" id="fbi-field">
                 <label for="" class="control-label">Suplidor de Envio</label>
               <select name="from_branch_id" id="from_branch_id" class="form-control select2" required="">
-                <option value=""></option>
+                <option value=""></option>-->
                 <?php 
-                  $branches = $conn->query("SELECT *,concat(street,', ',city,', ',state,', ',zip_code,', ',country) as address FROM branches");
-                    while($row = $branches->fetch_assoc()):
+                  /*$branches = $conn->query("SELECT *,concat(street,', ',city,', ',state,', ',zip_code,', ',country) as address FROM branches");
+                    while($row = $branches->fetch_assoc()):*/
                 ?>
-                  <option value="<?php echo $row['id'] ?>" <?php echo isset($from_branch_id) && $from_branch_id == $row['id'] ? "selected":'' ?>><?php echo $row['street'] ?></option>
-                <?php endwhile; ?>
-              </select>
-            </div>
-            <?php else: ?>
-              <input type="hidden" name="from_branch_id" value="<?php echo $_SESSION['login_branch_id'] ?>">
-            <?php endif; ?>  
-            <div class="form-group" id="tbi-field">
-              <label for="" class="control-label">Suplidor de Recepcion</label>
+                 <!-- <option value="<?php //echo $row['id'] ?>" <?php //echo isset($from_branch_id) && $from_branch_id == $row['id'] ? "selected":'' ?>><?php //echo $row['street'] ?></option>-->
+                <?php //endwhile; ?>
+              <!--</select>-->
+            <!--</div>-->
+           <!-- <?php //else: ?>
+              <input type="hidden" name="from_branch_id" value="<?php //echo $_SESSION['login_branch_id'] ?>">
+            <?php //endif; ?>  -->
+            <div class="form-group" id="tbi-field" style ="padding-top: 47px;">
+              <label for="" class="control-label">Suplidor </label>
               <select name="to_branch_id" id="to_branch_id" class="form-control select2">
                 <option value=""></option>
                 <?php 
@@ -151,10 +159,6 @@
 
 </script>
 <script>
-  function do_something() {   
-    
-}
-
 function start(){
     
     var Bl = $("#Tracking").val();
@@ -162,18 +166,25 @@ function start(){
     BL_send.forEach(function(value, index) {
         setTimeout(
             function() {
-              
+              /*
               var selected = $('#to_branch_id :selected').text();     
-              if (selected ="Cosco"){
+              if (selected == "Cosco"){
                 var tracking = 'Api/api_cosco.php';
-
-              }
-             
+              }else  if (selected =="Maersk"){
+                var tracking = 'Api/api_maersk.php';
+              }else if (selected =="CMA CGM"){
+                var tracking = 'Api/api_cma.php';
+              }else if (selected =="MSC"){
+                var tracking = 'Api/api_msc.php';
+              }*/
+              var nav = document.getElementById("navieras");
+              var api = nav.options[nav.selectedIndex].value;
+              console.log(api)
             Array.prototype.randomElement = function () {
             return this[Math.floor(Math.random() * this.length)]
             }
                var ajaxCall = $.ajax({
-                    url: tracking+'?lista=' + value,
+                    url: api+'?lista=' + value,
                     type: 'POST',
                     success: function (data) {  
                     var data_parsed = JSON.parse(data); 

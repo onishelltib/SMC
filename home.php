@@ -45,7 +45,7 @@ if($_SESSION['login_type'] != 1)
           </div>
           <hr>
           <?php 
-              $status_arr = array("Enviados","Recibidos","En Transito","En Puerto");
+              $status_arr = array("Enviado","Recibido","En Transito","En el Puerto"); 
                foreach($status_arr as $k =>$v):
           ?>
           <div class="col-12 col-sm-6 col-md-4">

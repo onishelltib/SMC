@@ -77,10 +77,10 @@ $branch = array();
 							</div>
 						</div>
 					<dl>
-						<dt>Suplidor de Recepcion:</dt>
-						<dd><?php echo ucwords($branch[$from_branch_id]) ?></dd>
+						<!--<dt>Suplidor de Recepcion:</dt>
+						<dd><?php //echo ucwords($branch[$from_branch_id]) ?></dd>-->
 						<?php if($type == 2): ?>
-							<dt>Suplidor de Envio:</dt>
+							<dt>Suplidor:</dt>
 							<dd><?php echo ucwords($branch[$to_branch_id]) ?></dd>
 						<?php endif; ?>
 						<dt>Estado:</dt>
