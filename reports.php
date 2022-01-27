@@ -65,11 +65,11 @@
 			text-align: center;
 		}
 	</style>
-	<h3 class="text-center"><b>Report</b></h3>
+	<h3 class="text-center"><b>Reporte de Contenedor</b></h3>
 </noscript>
 <div class="details d-none">
-		<p><b>Date Range:</b> <span class="drange"></span></p>
-		<p><b>Status:</b> <span class="status-field">All</span></p>
+		<p><b>Rango de Fechas:</b> <span class="drange"></span></p>
+		<p><b>Estado:</b> <span class="status-field">All</span></p>
 	</div>
 <script>
 	function load_report(){

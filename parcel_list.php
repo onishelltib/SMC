@@ -99,7 +99,9 @@
 </style>
 <script>
 	$(document).ready(function(){
-		$('#list').dataTable()
+		$('#list').dataTable({
+    	"iDisplayLength": 50
+  		} )
 		$('.view_parcel').click(function(){
 			uni_modal("Detalles del Contenedor","view_parcel.php?id="+$(this).attr('data-id'),"large")
 		})
