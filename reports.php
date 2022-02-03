@@ -1,11 +1,13 @@
 <?php include 'db_connect.php' ?>
 <?php $status = isset($_GET['status']) ? $_GET['status'] : 'all' ?>
+
 <div class="col-lg-12">
 	<div class="card card-outline card-primary">
 		<div class="card-body">
+			
 			<div class="d-flex w-100 px-1 py-2 justify-content-center align-items-center">
 			<?php 
-			$status_arr = $status_arr = array("Enviado","Recibido","En Transito","En el Puerto"); ?>
+			$status_arr =  array(" Enviado"," Recibido"," En Transito"," En el Puerto"); ?>
 				<label for="date_from" class="mx-1">Status</label>
 				<select name="" id="status" class="custom-select custom-select-sm col-sm-3">
 					<option value="all" <?php echo $status == 'all' ? "selected" :'' ?>>All</option>
@@ -35,11 +37,14 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Date</th>
-								<th>Sender</th>
-								<th>Recepient</th>
-								<th>Amount</th>
-								<th>Status</th>
+								<th>Orden</th>
+								<th>Importacion</th>
+								<th>Suplidor</th>
+								<th>Producto</th>
+								<th>Costo x Caja</th>
+								<th>Cantidad</th>
+								<th>ETA</th>
+								<th>ETE</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -71,6 +76,7 @@
 		<p><b>Rango de Fechas:</b> <span class="drange"></span></p>
 		<p><b>Estado:</b> <span class="status-field">All</span></p>
 	</div>
+
 <script>
 	function load_report(){
 		start_load()
@@ -95,11 +101,19 @@
 							Object.keys(resp).map(function(k){
 								var tr = $('<tr></tr>')
 								tr.append('<td>'+(i++)+'</td>')
-								tr.append('<td>'+(resp[k].date_created)+'</td>')
-								tr.append('<td>'+(resp[k].sender_name)+'</td>')
-								tr.append('<td>'+(resp[k].recipient_name)+'</td>')
+								tr.append('<td>'+(resp[k].weight)+'</td>')
+								tr.append('<td>'+(resp[k].length)+'</td>')
+								if (resp[k].to_branch_id == 1){
+									resp[k].to_branch_id = "JOSE PAIEWONSKY E HIJOS";
+								}else if (resp[k].to_branch_id == 2){
+									resp[k].to_branch_id = "HARTWICK FINANCIAL CORP.";
+								}
+								tr.append('<td>'+(resp[k].to_branch_id)+'</td>')
+								tr.append('<td>'+(resp[k].width)+'</td>')
 								tr.append('<td>'+(resp[k].price)+'</td>')
-								tr.append('<td>'+(resp[k].status)+'</td>')
+								tr.append('<td>'+(resp[k].height)+'</td>')
+								tr.append('<td>'+(resp[k].sender_contact)+'</td>')
+								tr.append('<td>'+(resp[k].recipient_name)+'</td>')
 								$('#report-list tbody').append(tr)
 							})
 							$('#print').show()

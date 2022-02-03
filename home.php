@@ -31,21 +31,21 @@ if($_SESSION['login_type'] != 1)
               </div>
             </div>
           </div>
-           <div class="col-12 col-sm-6 col-md-4">
+          <!-- <div class="col-12 col-sm-6 col-md-4">
             <div class="small-box bg-light shadow-sm border">
               <div class="inner">
-                <h3><?php echo $conn->query("SELECT * FROM users where type != 1")->num_rows; ?></h3>
+                <h3><?php //echo $conn->query("SELECT * FROM users where type != 1")->num_rows; ?></h3>
 
                 <p>Empleados</p>
               </div>
               <div class="icon">
                 <i class="fa fa-users"></i>
               </div>
-            </div>
+            </div>-->
           </div>
           <hr>
           <?php 
-              $status_arr = array("Enviado","Recibido","En Transito","En el Puerto"); 
+              $status_arr =  array(" Enviados"," Recibidos"," En Transito"," En el Puerto");
                foreach($status_arr as $k =>$v):
           ?>
           <div class="col-12 col-sm-6 col-md-4">

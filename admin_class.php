@@ -331,7 +331,7 @@ Class Action {
 			$parcel = $parcel->fetch_array();
 			$data[] = array('status'=>'Enviado','date_created'=>date("M d, Y h:i A",strtotime($parcel['date_created'])));
 			$history = $this->db->query("SELECT * FROM parcel_tracks where parcel_id = {$parcel['id']}");
-			$status_arr = array("Enviado","Recibido","En Transito","En el Puerto");
+			$status_arr =  array(" Enviado"," Recibido"," En Transito"," En el Puerto");
 				while($row = $history->fetch_assoc()){
 				$row['date_created'] = date("M d, Y h:i A",strtotime($row['date_created']));
 				$row['status'] = $status_arr[$row['status']];
@@ -344,13 +344,13 @@ Class Action {
 		extract($_POST);
 		$data = array();
 		$get = $this->db->query("SELECT * FROM parcels where date(date_created) BETWEEN '$date_from' and '$date_to' ".($status != 'all' ? " and status = $status " : "")." order by unix_timestamp(date_created) asc");
-		$status_arr = array("Enviado","Recibido","En Transito","En el Puerto"); 
+		$status_arr =  array(" Enviado"," Recibido"," En Transito"," En el Puerto");
 		while($row=$get->fetch_assoc()){
 			$row['sender_name'] = ucwords($row['sender_name']);
 			$row['recipient_name'] = ucwords($row['recipient_name']);
 			$row['date_created'] = date("M d, Y",strtotime($row['date_created']));
 			$row['status'] = $status_arr[$row['status']];
-			$row['price'] = number_format($row['price'],2);
+			$row['price'] = ($row['price']);
 			$data[] = $row;
 		}
 		return json_encode($data);

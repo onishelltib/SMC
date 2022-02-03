@@ -45,7 +45,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <a href="#" class="nav-link nav-edit_staff">
               <i class="nav-icon fas fa-users"></i>
               <p>
@@ -67,7 +67,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li>-->
         <?php endif; ?>
           <li class="nav-item">
             <a href="#" class="nav-link nav-edit_parcel">
@@ -91,7 +91,7 @@
                 </a>
               </li>
               <?php 
-              $status_arr = array("Enviados","Recibidos","En Transito","En Puerto" );
+              $status_arr =  array(" Enviado"," Recibido"," En Transito"," En el Puerto");
               foreach($status_arr as $k =>$v):
               ?>
               <li class="nav-item">
