@@ -47,36 +47,38 @@
         <hr>
         <div class="row">
           <div class="col-md-6">
-            <div class="form-group">
+            <!--<div class="form-group">
               <label for="dtype">Tipo</label>
               <input type="checkbox" name="type" id="dtype" <?php echo isset($type) && $type == 1 ? 'checked' : '' ?> data-bootstrap-switch data-toggle="toggle" data-on="Exportacion" data-off="Importacion" class="switch-toggle status_chk" data-size="xs" data-offstyle="info" data-width="6rem" value="1">
              
-            </div>
+            </div>-->
             <label for="navieras"><b>Naviera</b></label>
               <select id="navieras" class="form-control">
                 <option value="Api/api_cosco.php">Cosco</option>
                 <option value="Api/api_maersk.php">Maersk</option>
                 <option value="Api/api_cma.php">CMA CGM</option>
                 <option value="Api/api_msc.php">MSC</option>
+                <option value="Api/api_hapag_loid.php">Hapag Lloyd</option>
+                <option value="Api/api_hapag_loid.php">Evergreen</option>
                 </select>
           </div>
-          <div class="col-md-6" id=""  <?php echo isset($type) && $type == 1 ? 'style="display: none"' : '' ?>>
-            <!--<?php //if($_SESSION['login_branch_id'] <= 0): ?>
+          <div class="col-md-6" id=""  <?php //echo isset($type) && $type == 1 ? 'style="display: none"' : '' ?>>
+            <?php if($_SESSION['login_branch_id'] <= 0): ?>
               <div class="form-group" id="fbi-field">
-                <label for="" class="control-label">Suplidor de Envio</label>
+                <label for="" class="control-label">Embarcador</label>
               <select name="from_branch_id" id="from_branch_id" class="form-control select2" required="">
-                <option value=""></option>-->
+                <option value=""></option>
                 <?php 
-                  /*$branches = $conn->query("SELECT *,concat(street,', ',city,', ',state,', ',zip_code,', ',country) as address FROM branches");
-                    while($row = $branches->fetch_assoc()):*/
+                  $branches = $conn->query("SELECT *,concat(street,', ',city,', ',state,', ',zip_code,', ',country) as address FROM branches");
+                    while($row = $branches->fetch_assoc()):
                 ?>
-                 <!-- <option value="<?php //echo $row['id'] ?>" <?php //echo isset($from_branch_id) && $from_branch_id == $row['id'] ? "selected":'' ?>><?php //echo $row['street'] ?></option>-->
-                <?php //endwhile; ?>
-              <!--</select>-->
-            <!--</div>-->
-           <!-- <?php //else: ?>
-              <input type="hidden" name="from_branch_id" value="<?php //echo $_SESSION['login_branch_id'] ?>">
-            <?php //endif; ?>  -->
+                 <option value="<?php echo $row['id'] ?>" <?php echo isset($from_branch_id) && $from_branch_id == $row['id'] ? "selected":'' ?>><?php echo $row['street'] ?></option>-->
+                <?php endwhile; ?>
+              </select>
+            </div>
+            <?php else: ?>
+              <input type="hidden" name="from_branch_id" value="<?php echo $_SESSION['login_branch_id'] ?>">
+            <?php endif; ?>  
             <div class="form-group" id="tbi-field" style ="padding-top: 47px;">
               <label for="" class="control-label">Suplidor </label>
               <select name="to_branch_id" id="to_branch_id" class="form-control select2">
@@ -166,33 +168,36 @@ function start(){
     BL_send.forEach(function(value, index) {
         setTimeout(
             function() {
-              /*
-              var selected = $('#to_branch_id :selected').text();     
-              if (selected == "Cosco"){
-                var tracking = 'Api/api_cosco.php';
-              }else  if (selected =="Maersk"){
-                var tracking = 'Api/api_maersk.php';
-              }else if (selected =="CMA CGM"){
-                var tracking = 'Api/api_cma.php';
-              }else if (selected =="MSC"){
-                var tracking = 'Api/api_msc.php';
-              }*/
+             
               var nav = document.getElementById("navieras");
-              var api = nav.options[nav.selectedIndex].value;
-              console.log(api)
+              var api = nav.value;
+              var api_selected = nav.options[nav.selectedIndex].text;
+              
+              if (api_selected == 'Hapag Lloyd'){
+                var url = "https://www.hapag-lloyd.com/en/online-business/track/track-by-container-solution.html?container=" + Bl;
+                window.open(url, "_blank");
+                console.log(api_selected);
+              }else if (api_selected == 'Evergreen'){
+                var url = "https://www.hapag-lloyd.com/en/online-business/track/track-by-container-solution.html?container=" + Bl;
+                window.open(url, "_blank");
+                console.log(api_selected);
+              }
             Array.prototype.randomElement = function () {
             return this[Math.floor(Math.random() * this.length)]
             }
                var ajaxCall = $.ajax({
                     url: api+'?lista=' + value,
                     type: 'POST',
-                    success: function (data) {  
+                    success: function (data) { 
+                       
                     var data_parsed = JSON.parse(data); 
                     $('#ETA').val(data_parsed.ETA_at_Place_of_Delivery);
                     $('#Estimated_ETA').val(data_parsed.Estimated_Date_of_Arrival);
                     $('#Cargo_Cutoff').val(data_parsed.CutOff);
                     $('#POD').val(data_parsed.Point_of_Depature);
-                    $('#POL').val(data_parsed.Point_of_Landing);               
+                    $('#POL').val(data_parsed.Point_of_Landing);  
+              
+
                     }
                 });
             });

@@ -20,9 +20,9 @@
 						<th class="text-center">#</th>
 						<th>Codigo</th>
 						<th>Nombre</th>
-						<th>Ciudad/Estado/Zip</th>
+						<!--<th>Ciudad/Estado/Zip</th>
 						<th>Pais</th>
-						<th>Número de Contacto</th>
+						<th>Número de Contacto</th>-->
 						<th>Acciones</th>
 					</tr>
 				</thead>
@@ -36,9 +36,9 @@
 						<td class="text-center"><?php echo $i++ ?></td>
 						<td class=""><b><?php echo $row['branch_code'] ?></b></td>
 						<td><b><?php echo ucwords($row['street']) ?></b></td>
-						<td><b><?php echo ucwords($row['city'].' '.$row['state'].' '.$row['zip_code']) ?></b></td>
-						<td><b><?php echo ucwords($row['country']) ?></b></td>
-						<td><b><?php echo $row['contact'] ?></b></td>
+						<!--<td><b><?php //echo ucwords($row['city'].' '.$row['state'].' '.$row['zip_code']) ?></b></td>
+						<td><b><?php //echo ucwords($row['country']) ?></b></td>
+						<td><b><?php //echo $row['contact'] ?></b></td>-->
 						<td class="text-center">
 		                    <div class="btn-group">
 		                        <a href="index.php?page=edit_branch&id=<?php echo $row['id'] ?>" class="btn btn-primary btn-flat ">

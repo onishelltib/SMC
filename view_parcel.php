@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include 'db_connect.php';
 $qry = $conn->query("SELECT * FROM parcels where id = ".$_GET['id'])->fetch_array();
 foreach($qry as $k => $v){
@@ -71,14 +72,14 @@ $branch = array();
 									<dd><?php echo $width ?></dd>
 									<dt>Importacion:</dt>
 									<dd><?php echo $length ?></dd>
-									<dt>Tipo:</dt>
-									<dd><?php echo $type == 1 ? "<span class='badge badge-primary'>Exportacion</span>":"<span class='badge badge-info'>Importacion</span>" ?></dd>
+									<!--<dt>Tipo:</dt>
+									<dd><?php //echo $type == 1 ? "<span class='badge badge-primary'>Exportacion</span>":"<span class='badge badge-info'>Importacion</span>" ?></dd>-->
 								</dl>	
 							</div>
 						</div>
 					<dl>
-						<!--<dt>Suplidor de Recepcion:</dt>
-						<dd><?php //echo ucwords($branch[$from_branch_id]) ?></dd>-->
+						<dt>Embarcador:</dt>
+						<dd><?php echo ucwords($branch[$from_branch_id]) ?></dd>
 						<?php if($type == 2): ?>
 							<dt>Suplidor:</dt>
 							<dd><?php echo ucwords($branch[$to_branch_id]) ?></dd>

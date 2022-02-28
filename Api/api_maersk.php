@@ -30,8 +30,10 @@ $d = curl_exec($ch);
 
 
 $s = json_decode($d, true);
-$estimatedDateOfArrival = $s['data']['tracking_response'][0]['containerTracking']['eta'];
-$expectedDateOfDeparture = $s['data']['tracking_response'][0]['containerTracking']['eta'];
+$ETA = $s['data']['tracking_response'][0]['containerTracking']['eta'];
+$ETD = $s['data']['tracking_response'][0]['containerTracking']['eta'];
+$estimatedDateOfArrival = date("Y-m-d",strtotime($ETA));
+$expectedDateOfDeparture = date("Y-m-d",strtotime($ETD));
 $pod = $s['data']['tracking_response'][0]['containerTracking']['origin']['terminal'];
 $pol = $s['data']['tracking_response'][0]['containerTracking']['destination']['terminal'];
 $data_array = array('ETA_at_Place_of_Delivery'=>$expectedDateOfDeparture,'Estimated_Date_of_Arrival'=>$estimatedDateOfArrival,'Point_of_Depature'=>$pod,'Point_of_Landing'=>$pol);

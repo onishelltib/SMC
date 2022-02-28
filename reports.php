@@ -40,11 +40,12 @@
 								<th>Orden</th>
 								<th>Importacion</th>
 								<th>Suplidor</th>
+								<th>Embarcador</th>
 								<th>Producto</th>
 								<th>Costo x Caja</th>
 								<th>Cantidad</th>
 								<th>ETA</th>
-								<th>ETE</th>
+								<th>ETD</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -104,11 +105,32 @@
 								tr.append('<td>'+(resp[k].weight)+'</td>')
 								tr.append('<td>'+(resp[k].length)+'</td>')
 								if (resp[k].to_branch_id == 1){
-									resp[k].to_branch_id = "JOSE PAIEWONSKY E HIJOS";
+									resp[k].to_branch_id = "Jose Paiewonsky E Hijos";
 								}else if (resp[k].to_branch_id == 2){
-									resp[k].to_branch_id = "HARTWICK FINANCIAL CORP.";
+									resp[k].to_branch_id = "Hartwick Financial Corp.";
 								}
 								tr.append('<td>'+(resp[k].to_branch_id)+'</td>')
+
+								if (resp[k].from_branch_id == 16){
+									resp[k].from_branch_id = "China Unichem ind. L";
+								}else if (resp[k].from_branch_id == 17){
+									resp[k].from_branch_id = "Hci Wax";
+								}else if (resp[k].from_branch_id == 18){
+									resp[k].from_branch_id = "Sunny Success int.";
+								}else if (resp[k].from_branch_id == 19){
+									resp[k].from_branch_id = "Curacao Trading";
+								}else if (resp[k].from_branch_id == 20){
+									resp[k].from_branch_id = "Global Wax LLC";
+								}else if (resp[k].from_branch_id == 21){
+									resp[k].from_branch_id = "Sao Visitor";
+								}else if (resp[k].from_branch_id == 22){
+									resp[k].from_branch_id = "Hci Wax";
+								}else if (resp[k].from_branch_id == 23){
+									resp[k].from_branch_id = "Tranpak";
+								}else{
+									resp[k].from_branch_id = "";
+								}
+								tr.append('<td>'+(resp[k].from_branch_id)+'</td>')
 								tr.append('<td>'+(resp[k].width)+'</td>')
 								tr.append('<td>'+(resp[k].price)+'</td>')
 								tr.append('<td>'+(resp[k].height)+'</td>')

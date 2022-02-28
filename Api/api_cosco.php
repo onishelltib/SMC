@@ -19,9 +19,13 @@ $d = curl_exec($ch);
 $s = json_decode($d, true);
 $pod =$s['data']['content']['trackingPath']['pod'];
 $pol =$s['data']['content']['trackingPath']['pol'];
-$expectedDateOfDeparture = $s['data']['content']['trackingPath']['cgoAvailTm'];
-$estimatedDateOfArrival = $s['data']['content']['actualShipment'][1]['estimatedDateOfArrival'];
-$cargoCutOff = $s['data']['content']['cargoCutOff'];
+
+$cgoAvailTm = $s['data']['content']['trackingPath']['cgoAvailTm'];
+$expectedDateOfDeparture = date("Y-m-d",strtotime($cgoAvailTm));
+$EDA = $s['data']['content']['actualShipment'][1]['estimatedDateOfArrival'];
+$estimatedDateOfArrival = date("Y-m-d",strtotime($EDA));
+$CutOff = $s['data']['content']['cargoCutOff'];
+$cargoCutOff = date("Y-m-d",strtotime($CutOff));
 $data_array = array('ETA_at_Place_of_Delivery'=>$expectedDateOfDeparture,'Estimated_Date_of_Arrival'=>$estimatedDateOfArrival,'CutOff'=>$cargoCutOff,'Point_of_Depature'=>$pod,'Point_of_Landing'=>$pol);
 $data = json_encode($data_array);
 echo ($data);

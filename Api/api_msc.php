@@ -31,12 +31,14 @@ $d = curl_exec($ch);
 
 
 $s = json_decode($d, true);
-$estimatedDateOfArrival = $s['data']['tracking_response'][0]['containerTracking']['eta'];
+$ETA = $s['data']['tracking_response'][0]['containerTracking']['eta'];
+$expectedDateOfDeparture = date("Y-m-d",strtotime($ETA));
 $events = $s['data']['tracking_response'][0]['containerTracking']['trackingEvents'];
 if ($estimatedDateOfArrival = ":null,") {
     $pos = count($events);
     $actualpos = ($pos - 2);
-    $estimatedDateOfArrival = $s['data']['tracking_response'][0]['containerTracking']['trackingEvents'][$actualpos]['actualTimestamp'];
+    $actualTimestamp = $s['data']['tracking_response'][0]['containerTracking']['trackingEvents'][$actualpos]['actualTimestamp'];
+    $estimatedDateOfArrival = date("Y-m-d",strtotime($actualTimestamp));
 
 }
 
