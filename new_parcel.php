@@ -59,7 +59,7 @@
                 <option value="Api/api_cma.php">CMA CGM</option>
                 <option value="Api/api_msc.php">MSC</option>
                 <option value="Api/api_hapag_loid.php">Hapag Lloyd</option>
-                <option value="Api/api_hapag_loid.php">Evergreen</option>
+                <option value="Api/api_evergreen.php">Evergreen</option>
                 </select>
           </div>
           <div class="col-md-6" id=""  <?php //echo isset($type) && $type == 1 ? 'style="display: none"' : '' ?>>
@@ -178,7 +178,7 @@ function start(){
                 window.open(url, "_blank");
                 console.log(api_selected);
               }else if (api_selected == 'Evergreen'){
-                var url = "https://www.hapag-lloyd.com/en/online-business/track/track-by-container-solution.html?container=" + Bl;
+                var url = "https://ct.shipmentlink.com/servlet/TDB1_CargoTracking.do";
                 window.open(url, "_blank");
                 console.log(api_selected);
               }
