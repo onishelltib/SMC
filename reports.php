@@ -114,7 +114,7 @@
 								if (resp[k].from_branch_id == 16){
 									resp[k].from_branch_id = "China Unichem ind. L";
 								}else if (resp[k].from_branch_id == 17){
-									resp[k].from_branch_id = "Hci Wax";
+									resp[k].from_branch_id = "Heinrich Christen";
 								}else if (resp[k].from_branch_id == 18){
 									resp[k].from_branch_id = "Sunny Success int.";
 								}else if (resp[k].from_branch_id == 19){
@@ -127,6 +127,16 @@
 									resp[k].from_branch_id = "Hci Wax";
 								}else if (resp[k].from_branch_id == 23){
 									resp[k].from_branch_id = "Tranpak";
+								}else if (resp[k].from_branch_id == 24){
+									resp[k].from_branch_id = "Brascera S.A";
+								}else if (resp[k].from_branch_id == 25){
+									resp[k].from_branch_id = "Masterank Global L.";
+								}else if (resp[k].from_branch_id == 26){
+									resp[k].from_branch_id = "All American";
+								}else if (resp[k].from_branch_id == 27){
+									resp[k].from_branch_id = "Heinrich Cristen";
+								}else if (resp[k].from_branch_id == 28){
+									resp[k].from_branch_id = "Fortunare";
 								}else{
 									resp[k].from_branch_id = "";
 								}

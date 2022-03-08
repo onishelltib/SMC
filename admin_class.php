@@ -343,7 +343,7 @@ Class Action {
 	function get_report(){
 		extract($_POST);
 		$data = array();
-		$get = $this->db->query("SELECT * FROM parcels where date(date_created) BETWEEN '$date_from' and '$date_to' ".($status != 'all' ? " and status = $status " : "")." order by to_branch_id");
+		$get = $this->db->query("SELECT * FROM parcels where date(date_created) BETWEEN '$date_from' and '$date_to' ".($status != 'all' ? " and status = $status " : "")." order by length");
 		$status_arr =  array(" Enviado"," Recibido"," En Transito"," En el Puerto");
 		while($row=$get->fetch_assoc()){
 			$row['sender_name'] = ucwords($row['sender_name']);
