@@ -38,14 +38,14 @@
 							<tr>
 								<th>#</th>
 								<th>Orden</th>
-								<th>Importacion</th>
+								<!--<th>Importacion</th>-->
 								<th>Suplidor</th>
 								<th>Embarcador</th>
 								<th>Producto</th>
 								<th>Costo x Caja</th>
 								<th>Cantidad</th>
 								<th>ETA</th>
-								<th>ETD</th>
+								<!--<th>ETD</th>-->
 							</tr>
 						</thead>
 						<tbody>
@@ -104,12 +104,12 @@
 								tr.append('<td>'+(i++)+'</td>')
 								tr.append('<td>'+(resp[k].weight)+'</td>')
 								tr.append('<td>'+(resp[k].length)+'</td>')
-								if (resp[k].to_branch_id == 1){
+								/*if (resp[k].to_branch_id == 1){
 									resp[k].to_branch_id = "Jose Paiewonsky E Hijos";
 								}else if (resp[k].to_branch_id == 2){
 									resp[k].to_branch_id = "Hartwick Financial Corp.";
 								}
-								tr.append('<td>'+(resp[k].to_branch_id)+'</td>')
+								tr.append('<td>'+(resp[k].to_branch_id)+'</td>')*/
 
 								if (resp[k].from_branch_id == 16){
 									resp[k].from_branch_id = "China Unichem ind. L";
@@ -137,6 +137,10 @@
 									resp[k].from_branch_id = "Heinrich Cristen";
 								}else if (resp[k].from_branch_id == 28){
 									resp[k].from_branch_id = "Fortunare";
+								}else if (resp[k].from_branch_id == 29){
+									resp[k].from_branch_id = "AM WAX, INC.";
+								}else if (resp[k].from_branch_id == 30){
+									resp[k].from_branch_id = "Mexim  S.A";
 								}else{
 									resp[k].from_branch_id = "";
 								}
@@ -145,7 +149,7 @@
 								tr.append('<td>'+(resp[k].price)+'</td>')
 								tr.append('<td>'+(resp[k].height)+'</td>')
 								tr.append('<td>'+(resp[k].sender_contact)+'</td>')
-								tr.append('<td>'+(resp[k].recipient_name)+'</td>')
+								//tr.append('<td>'+(resp[k].recipient_name)+'</td>')
 								$('#report-list tbody').append(tr)
 							})
 							$('#print').show()
