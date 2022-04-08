@@ -71,7 +71,7 @@
 			text-align: center;
 		}
 	</style>
-	<h3 class="text-center"><b>Reporte de Contenedor</b></h3>
+	<h3 class="text-center"><b>Reporte de Contenedores de Importacion</b></h3>
 </noscript>
 <div class="details d-none">
 		<p><b>Rango de Fechas:</b> <span class="drange"></span></p>
