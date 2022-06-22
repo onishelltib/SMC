@@ -3,7 +3,7 @@
 		<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
 		<div class="form-group">
 			<label for="">Update Status</label>
-			<?php $status_arr =  array(" Enviado"," Recibido"," En Transito"," En el Puerto"); ?>
+			<?php $status_arr =  array(" Enviado"," Recibido"," En Transito"," En el Puerto"," Cancelado"); ?>
 			<select name="status" id="" class="custom-select custom-select-sm">
 				<?php foreach($status_arr as $k => $v): ?>
 					<option value="<?php echo $k ?>" <?php echo $_GET['cs'] == $k ? "selected" :'' ?>><?php echo $v; ?></option>

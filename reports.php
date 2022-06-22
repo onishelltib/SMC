@@ -7,7 +7,7 @@
 			
 			<div class="d-flex w-100 px-1 py-2 justify-content-center align-items-center">
 			<?php 
-			$status_arr =  array(" Enviado"," Recibido"," En Transito"," En el Puerto"); ?>
+			$status_arr =  array(" Enviado"," Recibido"," En Transito"," En el Puerto"," Cancelado"); ?>
 				<label for="date_from" class="mx-1">Status</label>
 				<select name="" id="status" class="custom-select custom-select-sm col-sm-3">
 					<option value="all" <?php echo $status == 'all' ? "selected" :'' ?>>All</option>

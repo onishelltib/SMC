@@ -91,7 +91,7 @@
                 </a>
               </li>
               <?php 
-              $status_arr =  array(" Enviado"," Recibido"," En Transito"," En el Puerto");
+              $status_arr =  array(" Enviado"," Recibido"," En Transito"," En el Puerto"," Cancelado");
               foreach($status_arr as $k =>$v):
               ?>
               <li class="nav-item">
