@@ -63,7 +63,7 @@
 									echo "<span class='badge badge-pill badge-primary'> En el Puerto</span>";
 									break;
 								case '4':
-									echo "<span class='badge badge-pill badge-primary'> Cancelado </span>";
+									echo "<span class='badge badge-pill badge-danger'> Cancelado </span>";
 									break;
 							
 								
