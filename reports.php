@@ -111,35 +111,33 @@
 								}
 								tr.append('<td>'+(resp[k].to_branch_id)+'</td>')*/
 
-								if (resp[k].from_branch_id == 16){
+								if (resp[k].from_branch_id == 1){
 									resp[k].from_branch_id = "China Unichem ind. L";
-								}else if (resp[k].from_branch_id == 17){
+								}else if (resp[k].from_branch_id == 2){
 									resp[k].from_branch_id = "Heinrich Christen";
-								}else if (resp[k].from_branch_id == 18){
+								}else if (resp[k].from_branch_id == 3){
 									resp[k].from_branch_id = "Sunny Success int.";
-								}else if (resp[k].from_branch_id == 19){
+								}else if (resp[k].from_branch_id == 4){
 									resp[k].from_branch_id = "Curacao Trading";
-								}else if (resp[k].from_branch_id == 20){
+								}else if (resp[k].from_branch_id == 5){
 									resp[k].from_branch_id = "Global Wax LLC";
-								}else if (resp[k].from_branch_id == 21){
+								}else if (resp[k].from_branch_id == 6){
 									resp[k].from_branch_id = "Sao Visitor";
-								}else if (resp[k].from_branch_id == 22){
+								}else if (resp[k].from_branch_id == 7){
 									resp[k].from_branch_id = "Hci Wax";
-								}else if (resp[k].from_branch_id == 23){
+								}else if (resp[k].from_branch_id == 8){
 									resp[k].from_branch_id = "Tranpak";
-								}else if (resp[k].from_branch_id == 24){
+								}else if (resp[k].from_branch_id == 9){
 									resp[k].from_branch_id = "Brascera S.A";
-								}else if (resp[k].from_branch_id == 25){
+								}else if (resp[k].from_branch_id == 10){
 									resp[k].from_branch_id = "Masterank Global L.";
-								}else if (resp[k].from_branch_id == 26){
+								}else if (resp[k].from_branch_id == 11){
 									resp[k].from_branch_id = "All American";
-								}else if (resp[k].from_branch_id == 27){
-									resp[k].from_branch_id = "Heinrich Cristen";
-								}else if (resp[k].from_branch_id == 28){
+								}else if (resp[k].from_branch_id == 12){
 									resp[k].from_branch_id = "Fortunare";
-								}else if (resp[k].from_branch_id == 29){
+								}else if (resp[k].from_branch_id == 13){
 									resp[k].from_branch_id = "AM WAX, INC.";
-								}else if (resp[k].from_branch_id == 30){
+								}else if (resp[k].from_branch_id == 14){
 									resp[k].from_branch_id = "Mexim  S.A";
 								}else{
 									resp[k].from_branch_id = "";
