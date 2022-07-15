@@ -139,6 +139,10 @@
 									resp[k].from_branch_id = "AM WAX, INC.";
 								}else if (resp[k].from_branch_id == 14){
 									resp[k].from_branch_id = "Mexim  S.A";
+								}else if (resp[k].from_branch_id == 15){
+									resp[k].from_branch_id = "José Paiewonsky E Hijos, S.R.L.";
+								}else if (resp[k].from_branch_id == 15){
+									resp[k].from_branch_id = "Hartwick Financial Corp.";
 								}else{
 									resp[k].from_branch_id = "";
 								}
