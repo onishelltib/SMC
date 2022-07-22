@@ -18,7 +18,7 @@
 				<thead>
 					<tr>
 						<th class="text-center">#</th>
-						<th>Codigo de Referencia</th>
+						<th>Codigo de Importacion</th>
 						<th>Booking</th>
 						<th>Fecha de llegada</th>
 						<th>Estado</th>
@@ -44,7 +44,7 @@
 					?>
 					<tr>
 						<td class="text-center"><?php echo $i++ ?></td>
-						<td><b><?php echo ($row['reference_number']) ?></b></td>
+						<td><b><?php echo ($row['length']) ?></b></td>
 						<td><b><?php echo ucwords($row['sender_name']) ?></b></td>
 						<td><b><?php echo ucwords($row['sender_contact']) ?></b></td>
 						<td class="text-center">
